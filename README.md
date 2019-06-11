@@ -24,12 +24,12 @@ Thanks to [Peter Njeru](https://peternjeru.co.ke) for this explanation.
 The fisrt step is to go to [Safaricom Developer's Website](https://developer.safaricom.co.ke) and get an account.
 
 #### Creating a sandbox app
-Got to [Creatind sandbox apps](https://developer.safaricom.co.ke/user/me/apps).
+Got to [Creating sandbox apps](https://developer.safaricom.co.ke/user/me/apps).
 
 Creating an app involves setting an app name and choosing the API products for which you will want to use. API products are a business package of the available APIs and the rules for access built around them.
 For this case make sure to use Lipa na Mpesa onlie.
 
-##### Consumer key and consumer secret
+#### Consumer key and consumer secret
 
 Go your dashboard and select your new app.
 The Keys tab shows the app keys (**CONSUMER_KEY** & **CONSUMER_SECRET**), the date they were issued and their expiry period. Sandbox keys do not expire.
@@ -101,7 +101,7 @@ All M-Pesa APIs work asynchronously. When you send a request for a transaction, 
 
 To receive responses, either M-Pesa results or queue timeouts, an HTTP listener will be needed.
 
-For example you have a server endpoint on youR API which you resgistered as your CallBackURL https://myapi.com/payments/confirmation
+For example, if you have an endpoint on your API which you resgistered as your *CallBackURL* https://myapi.com/payments/confirmation
 
 After a successfull transaction, M-Pesa will send a request to your *CallBackURL* with the following body.
 
