@@ -83,3 +83,63 @@ access_token = r.json()['access_token']
 | ResultDesc          	| Result description                                                                       	|
 | ResponseDescription 	| Response Description message                                                             	|
 | ResultCode          	| Result Code                                                                              	|
+##### example of a response after a successfull STK push request
+```json
+{
+    "MerchantRequestID": "25353-1377561-4",
+    "CheckoutRequestID": "ws_CO_26032018185226297",
+    "ResponseCode": "0",
+    "ResponseDescription": "Success. Request accepted for processing",
+    "CustomerMessage": "Success. Request accepted for processing"
+}
+```
+
+## API endpoint for CallBackURL
+All M-Pesa APIs work asynchronously. When you send a request for a transaction, it is added to a queue and after its processed, M-Pesa sends the response to the registered *CallBackURL*. This is is where you check is the payment was successfull or not. 
+**CheckoutRequestID** is used to identify each transaction. For example if you are dealing with orders you can mark the order as pending when initializing the STK push and upon recieving a response showing the transaction was successfull, you the mark the order as fully paid (Each order will have a unique *CheckoutRequestID)
+
+To receive responses, either M-Pesa results or queue timeouts, an HTTP listener will be needed.
+
+For example you have a server endpoint on youR API which you resgistered as your CallBackURL https://myapi.com/payments/confirmation
+
+After a successfull transaction, M-Pesa will send a request to your CallBackURL with the following body 
+```json
+{
+	"Body": 
+	{
+		"stkCallback": 
+		{
+			"MerchantRequestID": "21605-295434-4",
+			"CheckoutRequestID": "ws_CO_04112017184930742",
+			"ResultCode": 0,
+			"ResultDesc": "The service request is processed successfully.",
+			"CallbackMetadata": 
+			{
+				"Item": 
+				[
+					{
+						"Name": "Amount",
+						"Value": 1
+					},
+					{
+						"Name": "MpesaReceiptNumber",
+						"Value": "LK451H35OP"
+					},
+					{
+						"Name": "Balance"
+					},
+					{
+						"Name": "TransactionDate",
+						"Value": 20171104184944
+					},
+					{
+						"Name": "PhoneNumber",
+						"Value": 254727894083
+					}
+				]
+			}
+		}
+	}
+}
+
+```
