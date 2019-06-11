@@ -90,7 +90,13 @@ class MakeSTKPush(Resource):
                     "message":"Sorry, something went wrong please try again later."
                 },400
 
-            # if success return response
+            # CheckoutRequestID = response.text['CheckoutRequestID']
+
+            # Do something in your database e.g store the transaction or as an order
+            # make sure to store the CheckoutRequestID to identify the tranaction in 
+            # your CallBackURL endpoint.
+
+            # return a respone to your user
             return {
                 "data": json.loads(response.text)
             },200
