@@ -24,7 +24,8 @@ Thanks to [Peter Njeru](https://peternjeru.co.ke) for this explanation.
 The fisrt step is to go to [Safaricom Developer's Website](https://developer.safaricom.co.ke) and get an account.
 
 #### Creating a sandbox app
-Got to [Creatind sandbox apps](https://developer.safaricom.co.ke/user/me/apps)
+Got to [Creatind sandbox apps](https://developer.safaricom.co.ke/user/me/apps).
+
 Creating an app involves setting an app name and choosing the API products for which you will want to use. API products are a business package of the available APIs and the rules for access built around them.
 For this case make sure to use Lipa na Mpesa onlie.
 
@@ -32,5 +33,29 @@ For this case make sure to use Lipa na Mpesa onlie.
 
 Go your dashboard and select your new app.
 The Keys tab shows the app keys (**CONSUMER_KEY** & **CONSUMER_SECRET**), the date they were issued and their expiry period. Sandbox keys do not expire.
+
+
+## Making the request
+
+#### Authentication
+Before you make any request you have to get an *access_token* to authenticate your app. You do this by making an OAuth API request to generate an *access_token* for your app.
+
+You will need a Basic Auth over HTTPS authorization token.
+```
+
+    consumer_key = "YOUR_APP_CONSUMER_KEY"
+    consumer_secret = "YOUR_APP_CONSUMER_SECRET"
+    api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
+
+    # make a get request using python requests liblary
+    r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
+
+```
+Make the request and get your *access_token* from the response body
+```
+r.json()['access_token']
+
+```
+
 
 
