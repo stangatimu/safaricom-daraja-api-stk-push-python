@@ -72,3 +72,14 @@ access_token = r.json()['access_token']
 | CallBackURL       	| The url to where responses from M-Pesa will be sent to. Expose  an end point in your API to confirm transaction status  [Completed or Failed] 	| POST https://myapi.com/payments/confirmation                                    	|
 | AccountReference  	| Used with M-Pesa PayBills.                                                                                                                    	| Payvill Account Number                                                          	|
 | TransactionDesc   	| A description of the transaction                                                                                                              	| Any String                                                                      	|
+
+#### Response Parameters
+
+| **Parameter**       	| **Description**                                                                          	|
+|---------------------	|------------------------------------------------------------------------------------------	|
+| MerchantRequestID   	| Merchant Request ID                                                                      	|
+| CheckoutRequestID   	| Check out Request ID                                                                     	|
+| ResponseCode        	| [Response Code](https://developer.safaricom.co.ke/docs#m-pesa-result-and-response-codes) 	|
+| ResultDesc          	| Result description                                                                       	|
+| ResponseDescription 	| Response Description message                                                             	|
+| ResultCode          	| Result Code                                                                              	|
