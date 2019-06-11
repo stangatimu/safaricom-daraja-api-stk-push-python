@@ -3,18 +3,18 @@ This is a simple tutorial on how to use the Lipa na M-Pesa Online Payment API to
 Lipa na M-Pesa Online Payment API is used to initiate a M-Pesa transaction on behalf of a customer using STK Push
 
 ### Steps of involved
-Thank to [Peter Njeru](https://peternjeru.co.ke) for this explanation.
+Thanks to [Peter Njeru](https://peternjeru.co.ke) for this explanation.
 
 1. The Business sets the data in the request and sends it
 2. The API receives the request and validates it internally first, then sends you an acknowledgement response.
 3. The API then sends an STK Push request to the target customer's mobile phone. The customer's phone has to be online and unlocked to receive the request.
 4. The customer confirms the payment amount via the message displayed on-screen, then either enters the PIN or cancels the request accordingly.
 5. The API receives the customer's response. If the response is a negative, it cancels the transaction and sends a corresponding callback to the initiating 3rd party via the predefined callback URL in the initial request, with the info on why the transaction was cancelled. The possible negative responses could be due to the following scenarios:
-... * An invalid PIN entered by the customer
-... * Timeout due to customer not entering the PIN within a given time period (usually 1 min 30 secs)
-... * The customer's SIM card not having the STK applet on it
-... * A literal request cancellation by the user on their phone
-... * Another STK transaction is already underway on the customer's phone (no more than one request can be processed at the same time on the same phone)
+    * An invalid PIN entered by the customer
+    * Timeout due to customer not entering the PIN within a given time period (usually 1 min 30 secs)
+    * The customer's SIM card not having the STK applet on it
+    * A literal request cancellation by the user on their phone
+    * Another STK transaction is already underway on the customer's phone (no more than one request can be processed at the same time on the same phone)
 
 6. If the PIN is correct, it means the customer accepted the request. The API forwards the transaction to M-Pesa.
 7. M-Pesa automatically processes the request, then sends the response back to the API system which then forwards it to you via the callback URL specified in your initial request. Here, the callback can also either be a success or failure, just like a normal C2B transaction.
@@ -29,6 +29,8 @@ Creating an app involves setting an app name and choosing the API products for w
 For this case make sure to use Lipa na Mpesa onlie.
 
 ##### Consumer key and consumer secret
+
+Go your dashboard and select your new app.
 The Keys tab shows the app keys (**CONSUMER_KEY** & **CONSUMER_SECRET**), the date they were issued and their expiry period. Sandbox keys do not expire.
 
 
