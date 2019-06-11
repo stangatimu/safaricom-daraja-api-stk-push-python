@@ -41,18 +41,18 @@ The Keys tab shows the app keys (**CONSUMER_KEY** & **CONSUMER_SECRET**), the da
 Before you make any request you have to get an *access_token* to authenticate your app. You do this by making an OAuth API request to generate an *access_token* for your app.
 
 You will need a Basic Auth over HTTPS authorization token.
-```
+```python
 
-    consumer_key = "YOUR_APP_CONSUMER_KEY"
-    consumer_secret = "YOUR_APP_CONSUMER_SECRET"
-    api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
+consumer_key = "YOUR_APP_CONSUMER_KEY"
+consumer_secret = "YOUR_APP_CONSUMER_SECRET"
+api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials"
 
-    # make a get request using python requests liblary
-    r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
+# make a get request using python requests liblary
+r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
 
 ```
 Make the request and get your *access_token* from the response body
-```
+```pyhton
 r.json()['access_token']
 
 ```
