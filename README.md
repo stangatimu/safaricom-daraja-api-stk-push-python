@@ -1,5 +1,5 @@
 # STK push with Daraja API using Python
-This is a simple tutorial on how to use the Lipa na M-Pesa Online Payment API to make an STK push and promopt users to make payments through M-pesa (C2B payments) using **python** **Flask** and **Flask-RESTful**. It makes the payment process easy for customers by reducing the burden of having to remember the Paybill Number, account number and amount of the transaction in question. This is done by prompting users only to enter their M-pesa PIN.
+This is a simple tutorial on how to use the Lipa na M-Pesa Online Payment API to make an STK push and prompt users to make payments through M-pesa (C2B payments) using **python** **Flask** and **Flask-RESTful**. It makes the payment process easy for customers by reducing the burden of having to remember the Paybill Number, account number and amount of the transaction in question. This is done by prompting users only to enter their M-pesa PIN.
 Lipa na M-Pesa Online Payment API is used to initiate a M-Pesa transaction on behalf of a customer using STK Push
 
 ### Steps of involved
@@ -27,7 +27,7 @@ The fisrt step is to go to [Safaricom Developer's Website](https://developer.saf
 Got to [Creating sandbox apps](https://developer.safaricom.co.ke/user/me/apps).
 
 Creating an app involves setting an app name and choosing the API products for which you will want to use. API products are a business package of the available APIs and the rules for access built around them.
-For this case make sure to use Lipa na Mpesa onlie.
+For this case make sure to use Lipa na Mpesa online.
 
 #### Consumer key and consumer secret
 
