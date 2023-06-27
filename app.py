@@ -33,12 +33,12 @@ class MakeSTKPush(Resource):
     parser.add_argument('phone',
             type=str,
             required=True,
-            help="This fied is required")
+            help="This field is required")
 
     parser.add_argument('amount',
             type=str,
             required=True,
-            help="this fied is required")
+            help="this field is required")
 
     # make stkPush method
     def post(self):
